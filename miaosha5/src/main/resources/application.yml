@@ -1,4 +1,15 @@
 spring:
+    resources:
+        add-mappings: true
+        cache:
+            period: 3600ms
+        chain:
+            cache: true
+            enabled: true
+            compressed: true
+            html-application-cache: true
+        static-locations: /static/
+
     thymeleaf:
         cache: false
         enabled: true
@@ -8,3 +19,26 @@ spring:
         servlet:
             content-type: text/html
         suffix: .html
+    redis:
+        host: localhost
+        port: 6379
+        lettuce:
+            pool:
+                min-idle: 0
+                max-idle: 8
+                max-active: 8
+                max-wait: -1ms
+            shutdown-timeout: 100ms
+    datasource:
+        url: jdbc:mysql://localhost/miaosha?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis:
+    config-location:
+    configuration:
+        default-fetch-size: 100
+        map-underscore-to-camel-case: true
+    type-aliases-package: com.lyle.ms.model
+    mapper-locations: classpath:/mappers/*.xml
