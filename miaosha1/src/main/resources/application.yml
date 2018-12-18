@@ -8,3 +8,5 @@ spring:
         servlet:
             content-type: text/html
         suffix: .html
+    resources:
+        static-locations: classpath:/static/

@@ -8,7 +8,7 @@ spring:
       enabled: true
       compressed: true
       html-application-cache: true
-    static-locations: /static/
+    static-locations: classpath:/static/
 
   thymeleaf:
         cache: false
