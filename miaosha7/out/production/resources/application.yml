@@ -1,4 +1,15 @@
 spring:
+    resources:
+        add-mappings: true
+        cache:
+            period: 3600ms
+        chain:
+            cache: true
+            enabled: true
+            compressed: true
+            html-application-cache: true
+        static-locations: classpath:/static/
+
     thymeleaf:
         cache: false
         enabled: true
@@ -8,3 +19,47 @@ spring:
         servlet:
             content-type: text/html
         suffix: .html
+    redis:
+        host: localhost
+        port: 6379
+        lettuce:
+            pool:
+                min-idle: 0
+                max-idle: 8
+                max-active: 8
+                max-wait: -1ms
+            shutdown-timeout: 100ms
+    datasource:
+        url: jdbc:mysql://localhost/miaosha?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: root
+        password: 123456
+        virtual-host: /
+
+        listener:
+            simple:
+                auto-startup: true #消费者自动启动
+                concurrency: 10 #消费者数量
+                max-concurrency: 10
+                prefetch: 1 #消费者每次从队列获取的消息数量
+                default-requeue-rejected: true #消费失败，自动重新入队
+        template:
+            retry:
+                enabled: true #启用发送重试
+                initial-interval: 1000ms
+                max-attempts: 3
+                max-interval: 10000ms
+                multiplier: 1.0
+
+mybatis:
+    config-location:
+    configuration:
+        default-fetch-size: 100
+        map-underscore-to-camel-case: true
+    type-aliases-package: com.lyle.ms.model
+    mapper-locations: classpath:/mappers/*.xml

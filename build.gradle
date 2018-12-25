@@ -33,7 +33,7 @@ subprojects {
     apply plugin: 'io.spring.dependency-management'
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
-    [compileJava, compileTestJava, javadoc]*.options*.encoding = "${encoding}"
+    [compileJava, compileTestJava, javadoc]*.options*.encoding = "utf8"
 
     configurations.all {
         exclude(group: "org.springframework.boot", module: "spring-boot-starter-logging")

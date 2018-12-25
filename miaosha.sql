@@ -39,7 +39,7 @@ drop table if exists miaosha_goods;
 create table miaosha_goods(
   id bigint not null auto_increment primary key comment '秒杀商品表',
   goods_id bigint default null comment '商品id',
-  miaosha_prive decimal(10,2) default '0.00' comment '秒杀价',
+  miaosha_price decimal(10,2) default '0.00' comment '秒杀价',
   stock_count int default null comment '库存数量',
   start_date datetime default null comment '秒杀开始时间',
   end_date datetime default null comment '秒杀结束时间'

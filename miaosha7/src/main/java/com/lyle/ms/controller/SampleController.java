@@ -54,11 +54,6 @@ public class SampleController {
 //        return Result.success("Hello，world");
 //    }
 
-  @RequestMapping("/hello")
-  @ResponseBody
-  public Result<String> home() {
-    return Result.success("Hello，world");
-  }
 
   @RequestMapping("/error")
   @ResponseBody
