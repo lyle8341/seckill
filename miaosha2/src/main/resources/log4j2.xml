@@ -5,7 +5,7 @@
   <Properties>
     <Property name="log.level.console">debug</Property>
     <Property name="log.path">/var/log/pm</Property>
-    <Property name="project.name">miaosha8</Property>
+    <Property name="project.name">miaosha2</Property>
     <Property name="pattern">%d{yyyy-MM-dd HH:mm:ss} %4p [%t] (%c{1.}:%L) - %m%n</Property>
     <Property name="keep_time">30d</Property>
   </Properties>
