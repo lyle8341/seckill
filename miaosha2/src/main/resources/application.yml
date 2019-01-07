@@ -3,7 +3,7 @@ spring:
         cache: false
         enabled: true
         encoding: UTF-8
-        mode: HTML5
+        mode: HTML
         prefix: classpath:/templates/
         servlet:
             content-type: text/html
@@ -31,3 +31,7 @@ mybatis:
     map-underscore-to-camel-case: true
   type-aliases-package: com.lyle.ms.model
   mapper-locations: classpath:/mappers/*.xml
+
+#日志
+logging:
+  config: classpath:log4j2.xml
